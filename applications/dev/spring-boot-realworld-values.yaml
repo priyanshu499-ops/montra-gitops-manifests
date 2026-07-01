@@ -8,7 +8,7 @@ global:
 deployment:
   image:
     name: "asia-south2-docker.pkg.dev/montra-490412/dev-app-images/spring-boot-realworld-app"
-    tag: "latest"
+    tag: "72cd925"
   resources:
     limits:
       cpu: 250m
