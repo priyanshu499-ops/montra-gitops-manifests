@@ -20,10 +20,18 @@ deployment:
     httpGet:
       path: /api/articles
       port: http
+    initialDelaySeconds: 100
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 6
   readinessProbe:
     httpGet:
       path: /api/articles
       port: http
+    initialDelaySeconds: 60
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 6
 
 service:
   type: ClusterIP
