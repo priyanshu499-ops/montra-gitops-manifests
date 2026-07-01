@@ -1,0 +1,44 @@
+nameOverride: spring-boot
+fullnameOverride: spring-boot
+
+global:
+  replicaCount: 1
+  namespace: dev
+
+deployment:
+  image:
+    name: "asia-south2-docker.pkg.dev/montra-490412/dev-app-images/spring-boot-realworld-app"
+    tag: "72cd925"
+  resources:
+    limits:
+      cpu: 250m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  livenessProbe:
+    httpGet:
+      path: /api/articles
+      port: http
+    initialDelaySeconds: 100
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 6
+  readinessProbe:
+    httpGet:
+      path: /api/articles
+      port: http
+    initialDelaySeconds: 60
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 6
+
+service:
+  type: ClusterIP
+  specs:
+    - name: http
+      port: 80
+      targetPort: 8080
+
+hpa:
+  enabled: false

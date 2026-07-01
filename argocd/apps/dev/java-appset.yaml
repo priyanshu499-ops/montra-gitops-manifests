@@ -8,6 +8,7 @@ spec:
     - list:
         elements:
           - app: spring-boot-realworld
+          - app: spring-boot
   template:
     metadata:
       name: '{{app}}'
