@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dev-apps
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - app: spring-boot-realworld
+  template:
+    metadata:
+      name: '{{app}}'
+      namespace: argocd
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+      labels:
+        environment: dev
+        app: '{{app}}'
+    spec:
+      project: dev
+      source:
+        repoURL: 'https://github.com/priyanshu499-ops/montra-gitops-manifests.git'
+        targetRevision: HEAD
+        path: helm
+        helm:
+          valueFiles:
+            - values.yaml
+            - ../applications/dev/{{app}}-values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: dev
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: false
+        syncOptions:
+          - CreateNamespace=true
+          - PrunePropagationPolicy=foreground
+          - PruneLast=true
+        retry:
+          limit: 3
+          backoff:
+            duration: 5s
+            factor: 2
+            maxDuration: 3m
