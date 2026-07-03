@@ -36,7 +36,7 @@ spec:
     spec:
       project: '{{project}}'
       source:
-        repoURL: 'https://github.com/vishutyagi0210/demo-argocd.git'
+        repoURL: 'https://github.com/priyanshu499-ops/montra-gitops-manifests.git'
         targetRevision: HEAD
         path: gitops-repo/helm
         helm:
