@@ -20,6 +20,10 @@ spec:
             project: dev
             app: spring2-boot-realworld
 
+          - env: dev
+            project: dev
+            app: simple-nodejs-app
+
   template:
     metadata:
       name: '{{app}}-{{env}}'
