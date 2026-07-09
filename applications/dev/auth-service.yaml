@@ -41,8 +41,8 @@ service:
   type: ClusterIP
   specs:
     - name: http
-      port: 80
-      targetPort: 8080
+      port: 81
+      targetPort: 8081
 
 ingress:
   enabled: false
