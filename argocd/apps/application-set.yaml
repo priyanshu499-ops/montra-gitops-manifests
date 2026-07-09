@@ -18,11 +18,11 @@ spec:
 
           - env: dev
             project: dev
-            app: spring2-boot-realworld
+            app: simple-nodejs-app
 
           - env: dev
             project: dev
-            app: simple-nodejs-app
+            app: auth-service
 
   template:
     metadata:
