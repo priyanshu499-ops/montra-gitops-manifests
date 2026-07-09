@@ -24,6 +24,10 @@ spec:
             project: dev
             app: auth-service
 
+          - env: dev
+            project: dev
+            app: apigateway
+
   template:
     metadata:
       name: '{{app}}-{{env}}'
