@@ -28,6 +28,10 @@ spec:
             project: dev
             app: apigateway
 
+          - env: dev
+            project: dev
+            app: virtualcard-service
+
   template:
     metadata:
       name: '{{app}}-{{env}}'
