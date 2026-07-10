@@ -1,0 +1,56 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          # format to add new app.
+          # - env: < dev , prod , uat >
+          #   project: < dev , prod , uat >
+          #   app: < app-name >
+
+          - env: dev
+            project: dev
+            app: spring-boot-realworld
+
+          - env: dev
+            project: dev
+            app: spring2-boot-realworld
+
+          
+
+  template:
+    metadata:
+      name: '{{app}}-{{env}}'
+      namespace: argocd
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+      labels:
+        environment: '{{env}}'
+        app: '{{app}}-{{env}}'
+    spec:
+      project: '{{project}}'
+      source:
+        repoURL: 'https://github.com/vishutyagi0210/demo-argocd.git'
+        targetRevision: HEAD
+        path: gitops-repo/helm
+        helm:
+          valueFiles:
+            - values.yaml
+            - '../applications/{{env}}/{{app}}-values.yaml'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{env}}'
+      syncPolicy:
+        # manual sync everywhere now — automated block removed (dev used to have it)
+        syncOptions:
+          - CreateNamespace=true
+        retry:
+          limit: 2
+          backoff:
+            duration: 5s
+            factor: 2
+            maxDuration: 3m
