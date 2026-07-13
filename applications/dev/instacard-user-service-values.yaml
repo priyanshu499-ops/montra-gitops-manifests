@@ -7,7 +7,7 @@ global:
 
 deployment:
   image:
-    name: "asia-south2-docker.pkg.dev/montra-490412/dev-app-images/auth-service"
+    name: "asia-south2-docker.pkg.dev/montra-490412/dev-app-images/instacard-user-service"
     tag: "fb2639f"
 
   resources:
