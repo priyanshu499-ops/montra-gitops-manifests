@@ -7,8 +7,8 @@ global:
 
 deployment:
   image:
-    name: "asia-south2-docker.pkg.dev/montra-490412/dev-app-images/spring-boot-realworld-app"
-    tag: "72cd925"
+    name: "asia-south2-docker.pkg.dev/montra-490412/dev-app-images/auth-service"
+    tag: "d409e25"
 
   resources:
     limits:
@@ -18,9 +18,10 @@ deployment:
       cpu: 100m
       memory: 126Mi
 
+
   livenessProbe:
     httpGet:
-      path: /health
+      path: /
       port: http
     initialDelaySeconds: 30
     periodSeconds: 10

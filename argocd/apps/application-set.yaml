@@ -14,23 +14,21 @@ spec:
 
           - env: dev
             project: dev
-            app: spring-boot-realworld
-
-          - env: dev
-            project: dev
-            app: simple-nodejs-app
-
-          - env: dev
-            project: dev
             app: auth-service
 
           - env: dev
             project: dev
-            app: apigateway
+            app: instacard-mock-apis
+
+          - env: dev
+            project: dev
+            app: instacard-user-service
 
           - env: dev
             project: dev
             app: virtualcard-service
+
+
 
   template:
     metadata:

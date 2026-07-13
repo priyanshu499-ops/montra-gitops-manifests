@@ -7,8 +7,8 @@ global:
 
 deployment:
   image:
-    name: "asia-south2-docker.pkg.dev/montra-490412/dev-app-images/apigateway"
-    tag: "fb2639f"
+    name: "asia-south2-docker.pkg.dev/montra-490412/dev-app-images/instacard-mock-apis"
+    tag: "c106a02"
 
   resources:
     limits:
