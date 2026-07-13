@@ -16,6 +16,9 @@ spec:
       server: https://kubernetes.default.svc
     - namespace: 'dev'
       server: https://kubernetes.default.svc
+    # development-montra-cluster (GKE) — added so apps can target this cluster
+    - namespace: 'dev'
+      server: https://gke-f430e707bd3f453ab4a7f498543e5de05754-433218788168.asia-south2.gke.goog
 
   clusterResourceWhitelist:
     - group: '*'
