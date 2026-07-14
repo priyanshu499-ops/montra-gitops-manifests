@@ -12,9 +12,9 @@ spec:
   source:
     repoURL: 'https://github.com/priyanshu499-ops/montra-gitops-manifests.git'
     targetRevision: HEAD
-    path: gitops-repo/argocd/apps/dev
+    path: montra-gitops-manifests/argocd/apps/dev
   destination:
-    server: https://kubernetes.default.svc
+    server: https://gke-f430e707bd3f453ab4a7f498543e5de05754-433218788168.asia-south2.gke.goog
     namespace: argocd
   syncPolicy:
     automated:
