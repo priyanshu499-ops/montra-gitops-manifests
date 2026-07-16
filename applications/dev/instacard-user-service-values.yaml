@@ -8,7 +8,7 @@ global:
 deployment:
   image:
     name: "asia-south2-docker.pkg.dev/development-498908/dev-app-images/instacard-user-service"
-    tag: "fb2639f"
+    tag: "166f265"
 
   resources:
     limits:

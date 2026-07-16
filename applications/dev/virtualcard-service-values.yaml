@@ -8,7 +8,7 @@ global:
 deployment:
   image:
     name: "asia-south2-docker.pkg.dev/development-498908/dev-app-images/virtualcard-service"
-    tag: "b1d60de"
+    tag: "4d06f47"
 
   resources:
     limits:
