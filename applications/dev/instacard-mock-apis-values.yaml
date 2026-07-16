@@ -7,7 +7,7 @@ global:
 
 deployment:
   image:
-    name: "asia-south2-docker.pkg.dev/montra-490412/dev-app-images/instacard-mock-apis"
+    name: "asia-south2-docker.pkg.dev/development-498908/dev-app-images/instacard-mock-apis"
     tag: "39eca30"
 
   resources:
