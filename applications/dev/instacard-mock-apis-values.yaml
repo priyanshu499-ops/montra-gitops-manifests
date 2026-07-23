@@ -24,9 +24,9 @@ deployment:
   #   --from-literal=DB_URL='jdbc:mysql://<host>:3306/<dbname>' \
   #   --from-literal=DB_USERNAME='<user>' \
   #   --from-literal=DB_PASSWORD='<pass>'
-  envFrom:
-    - secretRef:
-        name: instacard-mock-apis-db-creds
+  # envFrom:
+  #   - secretRef:
+  #       name: instacard-mock-apis-db-creds
 
 
   # livenessProbe:
