@@ -18,25 +18,28 @@ spec:
           - env: dev
             project: dev
             app: auth-service
-            cluster: https://gke-f430e707bd3f453ab4a7f498543e5de05754-433218788168.asia-south2.gke.goog
+            cluster: https://172.16.1.2
 
           - env: dev
             project: dev
             app: instacard-mock-apis
-            cluster: https://gke-f430e707bd3f453ab4a7f498543e5de05754-433218788168.asia-south2.gke.goog
+            cluster: https://172.16.1.2
 
           - env: dev
             project: dev
             app: instacard-user-service
-            cluster: https://gke-f430e707bd3f453ab4a7f498543e5de05754-433218788168.asia-south2.gke.goog
+            cluster: https://172.16.1.2
 
           - env: dev
             project: dev
             app: virtualcard-service
-            cluster: https://gke-f430e707bd3f453ab4a7f498543e5de05754-433218788168.asia-south2.gke.goog
+            cluster: https://172.16.1.2
 
-
-
+          - env: dev
+            project: dev
+            app: sdk-instacard-frontend
+            cluster: https://172.16.1.2
+            
   template:
     metadata:
       name: '{{app}}-{{env}}'

@@ -12,14 +12,12 @@ spec:
     - 'https://github.com/priyanshu499-ops/montra-gitops-manifests.git'
 
   destinations:
-    - namespace: argocd
-      server: https://kubernetes.default.svc        # ArgoCD in-cluster (for ApplicationSet)
-    - namespace: argocd
-      server: https://gke-f430e707bd3f453ab4a7f498543e5de05754-433218788168.asia-south2.gke.goog
+    # - namespace: argocd
+    #   server: https://gke-f430e707bd3f453ab4a7f498543e5de05754-433218788168.asia-south2.gke.goog
     # development-montra-cluster (GKE) — added so apps can target this cluster
     - namespace: 'dev'
-      server: https://gke-f430e707bd3f453ab4a7f498543e5de05754-433218788168.asia-south2.gke.goog
-
+      server: https://172.16.1.2
+      
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
