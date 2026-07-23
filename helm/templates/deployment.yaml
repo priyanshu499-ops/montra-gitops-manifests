@@ -67,6 +67,10 @@ spec:
             value: {{ $value | quote }}
           {{- end }}
           {{- end }}
+          {{- if .Values.deployment.envFrom }}
+          envFrom:
+          {{- toYaml .Values.deployment.envFrom | nindent 12 }}
+          {{- end }}
           {{- if and .Values.deployment.healthProbes.enabled .Values.deployment.livenessProbe.httpGet }}
           livenessProbe:
             {{- toYaml .Values.deployment.livenessProbe | nindent 12 }}

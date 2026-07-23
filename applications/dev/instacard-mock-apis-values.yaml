@@ -18,6 +18,16 @@ deployment:
       cpu: 100m
       memory: 126Mi
 
+  # DB credentials injected from K8s Secret (create once with kubectl — see below)
+  # kubectl create secret generic instacard-mock-apis-db-creds \
+  #   --namespace=dev \
+  #   --from-literal=DB_URL='jdbc:mysql://<host>:3306/<dbname>' \
+  #   --from-literal=DB_USERNAME='<user>' \
+  #   --from-literal=DB_PASSWORD='<pass>'
+  envFrom:
+    - secretRef:
+        name: instacard-mock-apis-db-creds
+
 
   # livenessProbe:
   #   httpGet:
