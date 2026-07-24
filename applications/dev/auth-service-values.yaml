@@ -18,10 +18,19 @@ deployment:
       cpu: 100m
       memory: 126Mi
       
-  # Load Spring Boot DB environment variables directly from ESO secret
+  # Load ESO secret containing DB_PASSWORD_APP_USER
   envFrom:
     - secretRef:
         name: dev-cloudsql-db-secret
+
+  # Spring Boot datasource configuration for Cloud SQL (10.14.0.7:3306)
+  environment:
+    SPRING_DATASOURCE_URL: "jdbc:mysql://10.14.0.7:3306/userdb?createDatabaseIfNotExist=true&useSSL=false"
+    SPRING_DATASOURCE_USERNAME: "app_user"
+    SPRING_DATASOURCE_PASSWORD: "$(DB_PASSWORD_APP_USER)"
+    SPRING_DATASOURCE_DRIVER_CLASS_NAME: "com.mysql.cj.jdbc.Driver"
+    SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.MySQLDialect"
+
 
 
 
