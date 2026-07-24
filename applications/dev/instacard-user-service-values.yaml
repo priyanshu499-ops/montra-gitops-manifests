@@ -18,6 +18,9 @@ deployment:
       cpu: 100m
       memory: 126Mi
 
+  envFrom:
+    - secretRef:
+        name: dev-cloudsql-db-secret
 
   # livenessProbe:
   #   httpGet:
